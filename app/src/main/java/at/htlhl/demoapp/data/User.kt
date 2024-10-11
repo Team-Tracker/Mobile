@@ -1,4 +1,4 @@
-package at.htlhl.demoapp
+package at.htlhl.demoapp.data
 
 import java.security.MessageDigest
 
