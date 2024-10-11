@@ -1,4 +1,4 @@
-package com.example.thesis
+package at.htlhl.demoapp
 
 import org.junit.Test
 
