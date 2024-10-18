@@ -1,10 +1,14 @@
-package at.htlhl.demoapp
+package at.htlhl.demoapp.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
@@ -20,19 +24,24 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import at.htlhl.demoapp.R
 import at.htlhl.demoapp.data.User
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegistrationScreen(navController: NavController) {
-    var email: String by remember { mutableStateOf("") }
-    var password: String by remember { mutableStateOf("") }
-    var repeatPW: String by remember { mutableStateOf("") }
+fun LoginScreen(navController: NavController, user: User) {
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+
+    val testEmail: String = "test"
+    val testPW: String = "password"
 
     Column(
         modifier = Modifier
@@ -40,13 +49,30 @@ fun RegistrationScreen(navController: NavController) {
             .padding(25.dp)
             .fillMaxSize()
     ) {
+
+        Image(
+            modifier = Modifier
+                .width(300.dp)
+                .height(300.dp)
+                .align(Alignment.CenterHorizontally)
+                .clip(CircleShape)
+                .border(
+                    width = 3.dp,
+                    color = Color.Blue,
+                    shape = CircleShape
+                ),
+            painter = painterResource(id = R.drawable.logo),
+            contentDescription = "Logo"
+        )
+
         OutlinedTextField(
-            value = email, onValueChange = { newText -> email = newText },
+            value = email,
+            onValueChange = { newText -> email = newText },
             label = { Text("Email Address") },
             colors = TextFieldDefaults.textFieldColors(
                 focusedIndicatorColor = Color.White,
                 unfocusedIndicatorColor = Color.White,
-                focusedLabelColor = Color.White,
+                focusedLabelColor = Color.White
             ),
             modifier = Modifier
                 .width(300.dp)
@@ -73,34 +99,16 @@ fun RegistrationScreen(navController: NavController) {
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
         )
 
-        OutlinedTextField(
-            value = repeatPW,
-            onValueChange = { newText -> repeatPW = newText },
-            label = { Text("Repeat Password") },
-            colors = TextFieldDefaults.textFieldColors(
-                focusedIndicatorColor = Color.White,
-                unfocusedIndicatorColor = Color.White,
-                focusedLabelColor = Color.White
-            ),
-            modifier = Modifier
-                .width(300.dp)
-                .align(Alignment.CenterHorizontally)
-                .padding(bottom = 20.dp),
-            shape = RoundedCornerShape(percent = 15),
-            visualTransformation = PasswordVisualTransformation(),
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-        )
+
 
         Button(
             onClick = {
-                if (repeatPW == password && password.length >= 8) {
-                    var user = User()
+                      if(email == testEmail && testPW == password) {
+                          user.setEmail(testEmail)
+                          user.setPwHash(password)
 
-                    user.setEmail(email)
-                    user.setPwHash(password)
-
-                    navController.navigate("login_screen")
-                }
+                          navController.navigate("team_screen")
+                      }
             },
             colors = ButtonDefaults.buttonColors(
                 Color.Blue
@@ -111,12 +119,12 @@ fun RegistrationScreen(navController: NavController) {
                 .padding(bottom = 20.dp),
             shape = RoundedCornerShape(percent = 50)
         ) {
-            Text("Register")
+            Text("Login")
         }
 
         Button(
             onClick = {
-                navController.navigate("login_Screen")
+                navController.navigate("registration_screen")
             },
             colors = ButtonDefaults.buttonColors(
                 Color.Blue
@@ -127,7 +135,7 @@ fun RegistrationScreen(navController: NavController) {
                 .padding(bottom = 20.dp),
             shape = RoundedCornerShape(percent = 50)
         ) {
-            Text("Back")
+            Text("Create Account")
         }
     }
 }

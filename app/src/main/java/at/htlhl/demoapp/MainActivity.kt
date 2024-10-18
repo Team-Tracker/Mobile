@@ -11,6 +11,13 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import at.htlhl.demoapp.data.User
+import at.htlhl.demoapp.screens.CalendarScreen
+import at.htlhl.demoapp.screens.ChatScreen
+import at.htlhl.demoapp.screens.LoginScreen
+import at.htlhl.demoapp.screens.ProfileScreen
+import at.htlhl.demoapp.screens.RegistrationScreen
+import at.htlhl.demoapp.screens.TeamScreen
 import at.htlhl.demoapp.ui.theme.LoginTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,19 +29,34 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Modifier.padding(innerPadding)
 
+
                     val navController = rememberNavController()
 
-                    NavHost(navController = navController, startDestination = "login_Screen") {
-                        composable("login_Screen") {
-                            LoginScreen(navController)
+                    val user = User()
+
+                    NavHost(navController = navController, startDestination = "login_screen") {
+                        composable("login_screen") {
+                            LoginScreen(navController, user)
                         }
 
-                        composable("registration_Screen") {
-                            RegistrationScreen(navController)
+                        composable("registration_screen") {
+                            RegistrationScreen(navController, user)
                         }
 
                         composable("team_screen") {
-                            TeamScreen(navController = navController)
+                            TeamScreen(navController, user)
+                        }
+
+                        composable("calendar_screen") {
+                            CalendarScreen(navController, user)
+                        }
+
+                        composable("chat_screen") {
+                            ChatScreen(navController, user)
+                        }
+
+                        composable("profile_screen") {
+                            ProfileScreen(navController, user)
                         }
                     }
                 }
