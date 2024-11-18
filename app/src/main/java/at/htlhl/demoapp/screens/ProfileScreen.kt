@@ -50,6 +50,22 @@ fun ProfileScreen(navController: NavController, user: User) {
 
             Button(
                 onClick = {
+                    navController.navigate("edit_user_screen")
+                },
+                colors = ButtonDefaults.buttonColors(
+                    Color.Blue
+                ),
+                modifier = Modifier
+                    .width(250.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .padding(top = 20.dp),
+                shape = RoundedCornerShape(percent = 50)
+            ) {
+                Text("Edit User")
+            }
+
+            Button(
+                onClick = {
                     navController.navigate("login_screen")
                 },
                 colors = ButtonDefaults.buttonColors(
@@ -58,7 +74,7 @@ fun ProfileScreen(navController: NavController, user: User) {
                 modifier = Modifier
                     .width(250.dp)
                     .align(Alignment.CenterHorizontally)
-                    .padding(bottom = 20.dp),
+                    .padding(top = 20.dp),
                 shape = RoundedCornerShape(percent = 50)
             ) {
                 Text("Logout")

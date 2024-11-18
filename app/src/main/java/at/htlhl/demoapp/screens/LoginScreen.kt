@@ -40,7 +40,7 @@ fun LoginScreen(navController: NavController, user: User) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
-    val testUsername: String = ""
+    val testUsername: String = "testUser"
     val testPW: String = ""
 
     Column(
@@ -70,8 +70,6 @@ fun LoginScreen(navController: NavController, user: User) {
             onValueChange = { newText -> username = newText },
             label = { Text("Username") },
             colors = TextFieldDefaults.textFieldColors(
-                focusedIndicatorColor = Color.White,
-                unfocusedIndicatorColor = Color.White,
                 focusedLabelColor = Color.White
             ),
             modifier = Modifier
@@ -86,9 +84,7 @@ fun LoginScreen(navController: NavController, user: User) {
             onValueChange = { newText -> password = newText },
             label = { Text("Password") },
             colors = TextFieldDefaults.textFieldColors(
-                focusedIndicatorColor = Color.White,
-                unfocusedIndicatorColor = Color.White,
-                focusedLabelColor = Color.White
+                focusedIndicatorColor = Color.White
             ),
             modifier = Modifier
                 .width(300.dp)

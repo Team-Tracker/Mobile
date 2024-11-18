@@ -15,6 +15,7 @@ import at.htlhl.demoapp.data.Chat
 import at.htlhl.demoapp.data.User
 import at.htlhl.demoapp.screens.CalendarScreen
 import at.htlhl.demoapp.screens.ChatScreen
+import at.htlhl.demoapp.screens.EditUserScreen
 import at.htlhl.demoapp.screens.LoginScreen
 import at.htlhl.demoapp.screens.ProfileScreen
 import at.htlhl.demoapp.screens.RegistrationScreen
@@ -63,6 +64,9 @@ class MainActivity : ComponentActivity() {
 
                         composable("single_chat_screen") {
                             SingleChatScreen(navController, user, Chat())
+                        }
+                        composable("edit_user_screen") {
+                            EditUserScreen(navController, user)
                         }
                     }
                 }

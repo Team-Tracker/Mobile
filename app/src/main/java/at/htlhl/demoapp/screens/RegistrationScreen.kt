@@ -44,9 +44,7 @@ fun RegistrationScreen(navController: NavController, user: User) {
             value = username, onValueChange = { newText -> username = newText },
             label = { Text("Username") },
             colors = TextFieldDefaults.textFieldColors(
-                focusedIndicatorColor = Color.White,
-                unfocusedIndicatorColor = Color.White,
-                focusedLabelColor = Color.White,
+                focusedLabelColor = Color.White
             ),
             modifier = Modifier
                 .width(300.dp)
@@ -60,8 +58,6 @@ fun RegistrationScreen(navController: NavController, user: User) {
             onValueChange = { newText -> password = newText },
             label = { Text("Password") },
             colors = TextFieldDefaults.textFieldColors(
-                focusedIndicatorColor = Color.White,
-                unfocusedIndicatorColor = Color.White,
                 focusedLabelColor = Color.White
             ),
             modifier = Modifier
@@ -78,8 +74,6 @@ fun RegistrationScreen(navController: NavController, user: User) {
             onValueChange = { newText -> repeatPW = newText },
             label = { Text("Repeat Password") },
             colors = TextFieldDefaults.textFieldColors(
-                focusedIndicatorColor = Color.White,
-                unfocusedIndicatorColor = Color.White,
                 focusedLabelColor = Color.White
             ),
             modifier = Modifier
