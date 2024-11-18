@@ -1,6 +1,7 @@
 package at.htlhl.demoapp.data
 
 data class Task(
+    private var taskId: Number,
     private var title: String,
     private var description: String,
     private var assignee: User,
@@ -8,7 +9,11 @@ data class Task(
     private var endDate: Date
 ) {
 
-    constructor() : this("", "", User(), Date(), Date())
+    constructor() : this(0, "", "", User(), Date(), Date())
+
+    fun getTaskId(): Number {
+        return this.taskId
+    }
 
     fun getTitle(): String {
         return this.title
@@ -28,6 +33,10 @@ data class Task(
 
     fun getEndDate(): Date {
         return this.endDate
+    }
+
+    fun setTaskId(value: Number) {
+        this.taskId = value
     }
 
     fun setTitle(title: String) {

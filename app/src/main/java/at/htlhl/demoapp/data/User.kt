@@ -3,18 +3,23 @@ package at.htlhl.demoapp.data
 import java.security.MessageDigest
 
 data class User(
-    private var userName: String,
+    private var userId: Number,
+    private var username: String,
     private var firstName: String,
     private var lastName: String,
     private var email: String,
     private var phone: String,
-    private var pwHash: String,
+    private var pwHash: String
 ) {
 
-    constructor() : this("", "", "", "", "", "")
+    constructor() : this(0, "", "", "", "", "", "")
 
-    fun getUserName(): String {
-        return this.userName
+    fun getUserId(): Number {
+        return this.userId
+    }
+
+    fun getUsername(): String {
+        return this.username
     }
 
     fun getFirstName(): String {
@@ -37,8 +42,12 @@ data class User(
         return this.pwHash
     }
 
-    fun setUserName(value: String) {
-        this.userName = value
+    fun setUserId(value: Number) {
+        this.userId = value
+    }
+
+    fun setUsername(value: String) {
+        this.username = value
     }
 
     fun setFirstName(value: String) {

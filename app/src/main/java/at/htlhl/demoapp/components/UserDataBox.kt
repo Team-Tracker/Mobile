@@ -1,4 +1,4 @@
-package at.htlhl.demoapp
+package at.htlhl.demoapp.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -24,7 +24,7 @@ fun UserDataBox(key: String, value: String) {
                 color = Color.Black
             )
             .width(250.dp)
-            .background(Color.White)
+            .background(Color(200, 200, 200))
     ) {
         Column(modifier = Modifier.padding(all = 3.dp)) {
             Text(text = key, style = TextStyle(textDecoration = TextDecoration.Underline))

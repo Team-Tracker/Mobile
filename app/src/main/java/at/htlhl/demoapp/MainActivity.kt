@@ -11,21 +11,23 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import at.htlhl.demoapp.data.Chat
 import at.htlhl.demoapp.data.User
 import at.htlhl.demoapp.screens.CalendarScreen
 import at.htlhl.demoapp.screens.ChatScreen
 import at.htlhl.demoapp.screens.LoginScreen
 import at.htlhl.demoapp.screens.ProfileScreen
 import at.htlhl.demoapp.screens.RegistrationScreen
+import at.htlhl.demoapp.screens.SingleChatScreen
 import at.htlhl.demoapp.screens.TeamScreen
-import at.htlhl.demoapp.ui.theme.LoginTheme
+import at.htlhl.demoapp.ui.theme.Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            LoginTheme {
+            Theme{
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Modifier.padding(innerPadding)
 
@@ -57,6 +59,10 @@ class MainActivity : ComponentActivity() {
 
                         composable("profile_screen") {
                             ProfileScreen(navController, user)
+                        }
+
+                        composable("single_chat_screen") {
+                            SingleChatScreen(navController, user, Chat())
                         }
                     }
                 }

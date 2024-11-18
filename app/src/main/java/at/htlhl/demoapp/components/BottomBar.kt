@@ -1,4 +1,4 @@
-package at.htlhl.demoapp
+package at.htlhl.demoapp.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import at.htlhl.demoapp.R
 
 @Composable
 fun BottomBar(navController: NavController) {
@@ -26,7 +27,7 @@ fun BottomBar(navController: NavController) {
             onClick = { navController.navigate("team_screen") },
             Modifier.weight(0.25f),
             colors = ButtonDefaults.buttonColors(
-                Color.Blue
+                Color(50,50,50)
             ),
             shape = RoundedCornerShape(0)
         ) {
@@ -42,7 +43,7 @@ fun BottomBar(navController: NavController) {
             onClick = { navController.navigate("calendar_screen") },
             Modifier.weight(0.25f),
             colors = ButtonDefaults.buttonColors(
-                Color.Blue
+                Color(50,50,50)
             ),
             shape = RoundedCornerShape(0)
         ) {
@@ -59,7 +60,7 @@ fun BottomBar(navController: NavController) {
             onClick = { navController.navigate("chat_screen") },
             Modifier.weight(0.25f),
             colors = ButtonDefaults.buttonColors(
-                Color.Blue
+                Color(50,50,50)
             ),
             shape = RoundedCornerShape(0)
         ) {
@@ -75,7 +76,7 @@ fun BottomBar(navController: NavController) {
             onClick = { navController.navigate("profile_screen") },
             Modifier.weight(0.25f),
             colors = ButtonDefaults.buttonColors(
-                Color.Blue
+                Color(50,50,50)
             ),
             shape = RoundedCornerShape(0)
         ) {

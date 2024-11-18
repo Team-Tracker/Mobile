@@ -1,6 +1,7 @@
 package at.htlhl.demoapp.data
 
 data class Date(
+    private var dateId: Number,
     private var day: Number,
     private var month: Number,
     private var year: Number,
@@ -9,7 +10,11 @@ data class Date(
     private var second: Number
 ) {
 
-    constructor() : this(0, 0, 0, 0, 0, 0)
+    constructor() : this(0, 0, 0, 0, 0, 0, 0)
+
+    fun getDateId(): Number {
+        return this.dateId
+    }
 
     fun getYear(): Number {
         return this.year
@@ -29,6 +34,10 @@ data class Date(
 
     fun getMinute(): Number {
         return this.minute
+    }
+
+    fun setDateId(value: Number) {
+        this. dateId = value
     }
 
     fun getSecond(): Number {

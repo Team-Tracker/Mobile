@@ -1,12 +1,16 @@
 package at.htlhl.demoapp.data
 
 data class Message(
+    private var messageId: Number,
     private var sender: User,
     private var text: String,
-    private var chat: Chat,
     private var date: Date
 ) {
-    constructor() : this(User(), "", Chat(), Date())
+    constructor() : this(0, User(), "", Date())
+
+    fun getMessageId(): Number {
+        return this.messageId
+    }
 
     fun getSender(): User {
         return this.sender
@@ -16,12 +20,12 @@ data class Message(
         return this.text
     }
 
-    fun getChat(): Chat {
-        return this.chat
-    }
-
     fun getDate(): Date {
         return this.date
+    }
+
+    fun setMessageId(value: Number) {
+        this.messageId = value
     }
 
     fun setSender(user: User) {
@@ -30,10 +34,6 @@ data class Message(
 
     fun setText(text: String) {
         this.text = text
-    }
-
-    fun setChat(chat: Chat) {
-        this.chat = chat
     }
 
     fun setDate(date: Date) {

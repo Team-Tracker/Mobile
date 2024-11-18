@@ -2,15 +2,11 @@ package at.htlhl.demoapp.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -22,9 +18,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import at.htlhl.demoapp.BottomBar
+import at.htlhl.demoapp.components.BottomBar
 import at.htlhl.demoapp.R
-import at.htlhl.demoapp.UserDataBox
+import at.htlhl.demoapp.components.UserDataBox
 import at.htlhl.demoapp.data.User
 
 @Composable
@@ -32,7 +28,7 @@ fun ProfileScreen(navController: NavController, user: User) {
     Column(
         modifier = Modifier
             .background(Color.DarkGray)
-            .padding(top = 25.dp)
+            .padding(top = 20.dp)
             .fillMaxSize()
     ) {
         Image(
@@ -46,7 +42,7 @@ fun ProfileScreen(navController: NavController, user: User) {
         )
 
         Column(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            UserDataBox(key = "Username:", value = user.getUserName())
+            UserDataBox(key = "Username:", value = user.getUsername())
             UserDataBox(key = "Firstname:", value = user.getFirstName())
             UserDataBox(key = "Lastname:", value = user.getLastName())
             UserDataBox(key = "Email:", value = user.getEmail())

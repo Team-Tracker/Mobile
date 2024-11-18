@@ -37,16 +37,16 @@ import at.htlhl.demoapp.data.User
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(navController: NavController, user: User) {
-    var email by remember { mutableStateOf("") }
+    var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
-    val testEmail: String = "test"
-    val testPW: String = "password"
+    val testUsername: String = ""
+    val testPW: String = ""
 
     Column(
         modifier = Modifier
             .background(Color.DarkGray)
-            .padding(25.dp)
+            .padding(20.dp)
             .fillMaxSize()
     ) {
 
@@ -66,9 +66,9 @@ fun LoginScreen(navController: NavController, user: User) {
         )
 
         OutlinedTextField(
-            value = email,
-            onValueChange = { newText -> email = newText },
-            label = { Text("Email Address") },
+            value = username,
+            onValueChange = { newText -> username = newText },
+            label = { Text("Username") },
             colors = TextFieldDefaults.textFieldColors(
                 focusedIndicatorColor = Color.White,
                 unfocusedIndicatorColor = Color.White,
@@ -103,8 +103,8 @@ fun LoginScreen(navController: NavController, user: User) {
 
         Button(
             onClick = {
-                      if(email == testEmail && testPW == password) {
-                          user.setEmail(testEmail)
+                      if(username == testUsername && testPW == password) {
+                          user.setUsername(testUsername)
                           user.setPwHash(password)
 
                           navController.navigate("team_screen")

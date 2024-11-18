@@ -30,19 +30,19 @@ import at.htlhl.demoapp.data.User
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegistrationScreen(navController: NavController, user: User) {
-    var email: String by remember { mutableStateOf("") }
+    var username: String by remember { mutableStateOf("") }
     var password: String by remember { mutableStateOf("") }
     var repeatPW: String by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
             .background(Color.DarkGray)
-            .padding(25.dp)
+            .padding(20.dp)
             .fillMaxSize()
     ) {
         OutlinedTextField(
-            value = email, onValueChange = { newText -> email = newText },
-            label = { Text("Email Address") },
+            value = username, onValueChange = { newText -> username = newText },
+            label = { Text("Username") },
             colors = TextFieldDefaults.textFieldColors(
                 focusedIndicatorColor = Color.White,
                 unfocusedIndicatorColor = Color.White,
@@ -97,7 +97,7 @@ fun RegistrationScreen(navController: NavController, user: User) {
 
                 when (checkPW(password, repeatPW)) {
                     0 -> {
-                        user.setEmail(email)
+                        user.setEmail(username)
                         user.setPwHash(password)
 
                         // Daten an Backend senden

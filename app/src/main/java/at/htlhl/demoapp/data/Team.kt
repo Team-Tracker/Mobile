@@ -1,13 +1,18 @@
 package at.htlhl.demoapp.data
 
 data class Team(
+    private var teamId: Number,
     private var name: String,
     private var tasks: Array<Task>,
     private var members: Array<User>,
     private var owner: User
 ) {
 
-    constructor() : this("", arrayOf<Task>(), arrayOf<User>(), User())
+    constructor() : this(0, "", arrayOf<Task>(), arrayOf<User>(), User())
+
+    fun getTeamId(): Number{
+        return this.teamId
+    }
 
     fun getName(): String {
         return this.name
@@ -23,6 +28,10 @@ data class Team(
 
     fun getOwner(): User {
         return this.owner
+    }
+
+    fun setTeamId(value: Number) {
+        this.teamId = value
     }
 
     fun setName(name: String) {
