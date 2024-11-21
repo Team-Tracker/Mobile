@@ -53,7 +53,7 @@ fun ProfileScreen(navController: NavController, user: User) {
                     navController.navigate("edit_user_screen")
                 },
                 colors = ButtonDefaults.buttonColors(
-                    Color.Blue
+                    Color(100,150,255)
                 ),
                 modifier = Modifier
                     .width(250.dp)
@@ -69,7 +69,7 @@ fun ProfileScreen(navController: NavController, user: User) {
                     navController.navigate("login_screen")
                 },
                 colors = ButtonDefaults.buttonColors(
-                    Color.Blue
+                    Color(100,150,255)
                 ),
                 modifier = Modifier
                     .width(250.dp)

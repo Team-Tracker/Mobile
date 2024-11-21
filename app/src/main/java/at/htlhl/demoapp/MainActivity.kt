@@ -12,6 +12,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import at.htlhl.demoapp.data.Chat
+import at.htlhl.demoapp.data.Date
+import at.htlhl.demoapp.data.Message
 import at.htlhl.demoapp.data.User
 import at.htlhl.demoapp.screens.CalendarScreen
 import at.htlhl.demoapp.screens.ChatScreen
@@ -27,8 +29,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+
+
         setContent {
-            Theme{
+            Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Modifier.padding(innerPadding)
 
@@ -36,6 +41,8 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
 
                     val user = User()
+
+
 
                     NavHost(navController = navController, startDestination = "login_screen") {
                         composable("login_screen") {
@@ -63,7 +70,7 @@ class MainActivity : ComponentActivity() {
                         }
 
                         composable("single_chat_screen") {
-                            SingleChatScreen(navController, user, Chat())
+                            SingleChatScreen(navController, user)
                         }
                         composable("edit_user_screen") {
                             EditUserScreen(navController, user)

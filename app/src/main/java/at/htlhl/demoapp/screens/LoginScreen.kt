@@ -58,7 +58,7 @@ fun LoginScreen(navController: NavController, user: User) {
                 .clip(CircleShape)
                 .border(
                     width = 3.dp,
-                    color = Color.Blue,
+                    color = Color(100,150,255),
                     shape = CircleShape
                 ),
             painter = painterResource(id = R.drawable.logo),
@@ -107,7 +107,7 @@ fun LoginScreen(navController: NavController, user: User) {
                       }
             },
             colors = ButtonDefaults.buttonColors(
-                Color.Blue
+                Color(100,150,255)
             ),
             modifier = Modifier
                 .width(250.dp)
@@ -123,7 +123,7 @@ fun LoginScreen(navController: NavController, user: User) {
                 navController.navigate("registration_screen")
             },
             colors = ButtonDefaults.buttonColors(
-                Color.Blue
+                Color(100,150,255)
             ),
             modifier = Modifier
                 .width(250.dp)

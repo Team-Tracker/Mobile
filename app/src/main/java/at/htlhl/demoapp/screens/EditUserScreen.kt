@@ -123,7 +123,7 @@ fun EditUserScreen(navController: NavController, user: User) {
                 user.setPhone(newPhone)
             },
             colors = ButtonDefaults.buttonColors(
-                Color.Blue
+                Color(100,150,255)
             ),
             modifier = Modifier
                 .width(250.dp)
@@ -139,7 +139,7 @@ fun EditUserScreen(navController: NavController, user: User) {
                 navController.navigate("profile_screen")
             },
             colors = ButtonDefaults.buttonColors(
-                Color.Blue
+                Color(100,150,255)
             ),
             modifier = Modifier
                 .width(250.dp)

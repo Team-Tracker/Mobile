@@ -121,7 +121,7 @@ fun RegistrationScreen(navController: NavController, user: User) {
                 }
             },
             colors = ButtonDefaults.buttonColors(
-                Color.Blue
+                Color(100,150,255)
             ),
             modifier = Modifier
                 .width(250.dp)
@@ -137,7 +137,7 @@ fun RegistrationScreen(navController: NavController, user: User) {
                 navController.navigate("login_screen")
             },
             colors = ButtonDefaults.buttonColors(
-                Color.Blue
+                Color(100,150,255)
             ),
             modifier = Modifier
                 .width(250.dp)
